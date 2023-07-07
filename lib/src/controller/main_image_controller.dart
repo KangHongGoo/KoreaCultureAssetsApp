@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:get/get.dart';
-import 'package:mapmapmap/src/data/national_treasure_list.dart';
-import 'package:mapmapmap/src/data/treasure_list.dart';
+import 'package:mapmapmap/src/datatypes/national_treasure_list.dart';
+import 'package:mapmapmap/src/datatypes/treasure_list.dart';
 import 'package:http/http.dart' as http;
 import 'package:xml2json/xml2json.dart';
 
@@ -16,6 +16,11 @@ class MainImageController extends GetxController {
   RxString imgUrl2 = "".obs;
   RxString imgUrl3 = "".obs;
   RxString imgUrl4 = "".obs;
+
+  RxString nameUrl1 = "".obs;
+  RxString nameUrl2 = "".obs;
+  RxString nameUrl3 = "".obs;
+  RxString nameUrl4 = "".obs;
 
   RxString ccbaCtcd1 = "".obs;
   RxString ccbaAsno1 = "".obs;
@@ -136,6 +141,51 @@ class MainImageController extends GetxController {
     Map<String, dynamic> dataUrl4 = jsonDecode(jsonDataUrl4);
 
     imgUrl4.value = dataUrl4['result']['item']['imageUrl'];
+
+
+    /////////////////////////////
+
+    final response5 = await http.get(Uri.parse(url1), headers: {"Content-Type" : "application/json"} );
+    final getXmlDataUrl5 = response5.body;
+    final Xml2JsonDataUrl5 = Xml2Json()..parse(getXmlDataUrl5);
+    final jsonDataUrl5 = Xml2JsonDataUrl5.toParker();
+
+    Map<String, dynamic> dataUrl5 = jsonDecode(jsonDataUrl5);
+
+    nameUrl1.value = dataUrl5['result']['item']['ccbaMnm1'];
+
+    /////////////////////////////
+
+    final response6 = await http.get(Uri.parse(url2), headers: {"Content-Type" : "application/json"} );
+    final getXmlDataUrl6 = response6.body;
+    final Xml2JsonDataUrl6 = Xml2Json()..parse(getXmlDataUrl6);
+    final jsonDataUrl6 = Xml2JsonDataUrl6.toParker();
+
+    Map<String, dynamic> dataUrl6 = jsonDecode(jsonDataUrl6);
+
+    nameUrl1.value = dataUrl6['result']['item']['ccbaMnm1'];
+
+    //////////////////////////////
+
+    final response7 = await http.get(Uri.parse(url3), headers: {"Content-Type" : "application/json"} );
+    final getXmlDataUrl7 = response7.body;
+    final Xml2JsonDataUrl7 = Xml2Json()..parse(getXmlDataUrl7);
+    final jsonDataUrl7 = Xml2JsonDataUrl7.toParker();
+
+    Map<String, dynamic> dataUrl7 = jsonDecode(jsonDataUrl7);
+
+    nameUrl1.value = dataUrl7['result']['item']['ccbaMnm1'];
+
+    ////////////////////////////
+
+    final response8 = await http.get(Uri.parse(url4), headers: {"Content-Type" : "application/json"} );
+    final getXmlDataUrl8 = response8.body;
+    final Xml2JsonDataUrl8 = Xml2Json()..parse(getXmlDataUrl8);
+    final jsonDataUrl8 = Xml2JsonDataUrl8.toParker();
+
+    Map<String, dynamic> dataUrl8 = jsonDecode(jsonDataUrl8);
+
+    nameUrl1.value = dataUrl8['result']['item']['ccbaMnm1'];
 
     isLoading.value = false;
   }

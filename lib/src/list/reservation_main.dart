@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mapmapmap/model/reservation.dart';
+import 'package:mapmapmap/src/datatypes/reservation.dart';
 import 'package:mapmapmap/src/detail/performance_date_detail.dart';
 import 'package:mapmapmap/src/detail/reservation_detail.dart';
 

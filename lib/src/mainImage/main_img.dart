@@ -58,6 +58,7 @@ class _MainImageState extends State<MainImage> {
                 sliderIndicator(),
               ],
             ),
+             
           ),
         ],
       ),
@@ -125,7 +126,9 @@ class _MainImageState extends State<MainImage> {
               child: Image(
                 fit: BoxFit.cover,
                 image: NetworkImage(url.toString()),
-              )),
+
+              ),
+          ),
           onTap: () {
             if(index == 0 ) {
               Get.to(NationalTreasureDetail(

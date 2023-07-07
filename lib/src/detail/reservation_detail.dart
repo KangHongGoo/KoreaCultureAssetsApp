@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:mapmapmap/model/reservation.dart';
+import 'package:mapmapmap/src/datatypes/reservation.dart';
 
 
 class DataSource {
