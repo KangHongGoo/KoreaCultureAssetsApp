@@ -125,50 +125,63 @@ class _MainImageState extends State<MainImage> {
             int index = entry.key;
             final url = entry.value["imgUrl"];
             final name = entry.value["name"];
-        return GestureDetector(
-          child: Stack(
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  child: Image(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(url.toString()),
+        return Padding(
+          padding: EdgeInsets.fromLTRB(3, 1, 3, 1),
+          child: GestureDetector(
+            child: SafeArea(
+              child: Stack(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      child: Image(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(url.toString()),
 
-              ),
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children : [
-                    Padding(
-                      padding: EdgeInsets.all(5),
-                      child: Container(
-                        child: StrokeText(
-                        text: name.toString(),
-                          textStyle: TextStyle(
-                            fontSize: 21,
-                            color: Colors.black
-                          ),
-                          strokeColor: Colors.white,
-                          strokeWidth: 1.7,
+                  ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(195, 189, 0, 0),
+                        child: Stack(
+                          children: [
+                            Image(
+                                image: AssetImage("assets/black.png"),
+                                width: 210,
+                              ),
+                              Container(
+                                child: Padding(
+                                  padding: EdgeInsets.fromLTRB(10, 48, 0, 0),
+                                  child: StrokeText(
+                                       text: name.toString(),
+                                       textStyle: TextStyle(
+                                       fontSize:name.toString().length.toDouble() > 16 ? 14 : 30 - name.toString().length.toDouble() ,
+                                       color: Color.fromRGBO(255, 255, 255, 1)
+                                    ),
+                                       strokeColor: Color.fromRGBO(0, 0, 0, 1),
+                                       strokeWidth: 5.5,
+                                            ),
+                                ),
+                              ),
+                                  ],
                         ),
                       ),
                     ),
-                    ]
-                  ),
-                )
-              ],
+
+
+                  ],
+              ),
+            ),
+            onTap: () {
+              if(index == 0 ) {
+                Get.to(NationalTreasureDetail(
+                    ccbaAsno: entry.value["ccbaAsno"].toString(), ccbaCtcd: entry.value["ccbaCtcd"].toString()));
+              }else {
+                Get.to(TreasureDetail(ccbaAsno: entry.value["ccbaAsno"].toString(), ccbaCtcd: entry.value["ccbaCtcd"].toString()));
+              }
+            },
           ),
-          onTap: () {
-            if(index == 0 ) {
-              Get.to(NationalTreasureDetail(
-                  ccbaAsno: entry.value["ccbaAsno"].toString(), ccbaCtcd: entry.value["ccbaCtcd"].toString()));
-            }else {
-              Get.to(TreasureDetail(ccbaAsno: entry.value["ccbaAsno"].toString(), ccbaCtcd: entry.value["ccbaCtcd"].toString()));
-            }
-          },
         );
       }).toList(),
       options: CarouselOptions(

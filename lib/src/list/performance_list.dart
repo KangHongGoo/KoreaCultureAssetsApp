@@ -11,10 +11,10 @@ class PerformanceList extends StatelessWidget{
 
   PerformanceList({Key? key}) : super(key: key);
 
-  //xml->json 변환
+
   Future<List<Map<String, dynamic>>> loadTitleData() async {
     try{
-      String url = "http://www.cha.go.kr/cha/openapi/selectEventListOpenapi.do?searchYear=2023&searchMonth=6";
+      String url = "http://www.cha.go.kr/cha/openapi/selectEventListOpenapi.do?searchYear=2023&searchMonth=7";
 
       final response = await http.get(
         Uri.parse(url),
@@ -93,7 +93,7 @@ class PerformanceList extends StatelessWidget{
               itemBuilder: (context, index) {
                 Map<String, dynamic> item = dataList[index];
                 return ListTile(
-                  contentPadding: EdgeInsets.fromLTRB(30, 5, 20, 24), // 내용 주위 여백 조정, B:title-subtitle간격!
+                  contentPadding: EdgeInsets.fromLTRB(30, 5, 20, 10), // 내용 주위 여백 조정, B:title-subtitle간격!
                   title: Text(item['title']),
                   subtitle: Align(alignment: Alignment.bottomRight,
                     child: Text(
