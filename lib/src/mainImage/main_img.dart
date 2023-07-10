@@ -98,18 +98,22 @@ class _MainImageState extends State<MainImage> {
       {"imgUrl": mainImageController.imgUrl1,
         "ccbaCtcd": mainImageController.ccbaCtcd1,
         "ccbaAsno": mainImageController.ccbaAsno1,
+        "name" : mainImageController.nameUrl1
       },
       {"imgUrl": mainImageController.imgUrl2,
         "ccbaCtcd": mainImageController.ccbaCtcd2,
         "ccbaAsno": mainImageController.ccbaAsno2,
+        "name" : mainImageController.nameUrl2
       },
       {"imgUrl": mainImageController.imgUrl3,
         "ccbaCtcd": mainImageController.ccbaCtcd3,
         "ccbaAsno": mainImageController.ccbaAsno3,
+        "name" : mainImageController.nameUrl3
       },
       {"imgUrl": mainImageController.imgUrl4,
         "ccbaCtcd": mainImageController.ccbaCtcd4,
         "ccbaAsno": mainImageController.ccbaAsno4,
+        "name" : mainImageController.nameUrl4
       },
 
     ];
@@ -120,14 +124,42 @@ class _MainImageState extends State<MainImage> {
           .map((entry)  {
             int index = entry.key;
             final url = entry.value["imgUrl"];
+            final name = entry.value["name"];
         return GestureDetector(
-          child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Image(
-                fit: BoxFit.cover,
-                image: NetworkImage(url.toString()),
+          child: Stack(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  child: Image(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(url.toString()),
 
               ),
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children : [
+                    Padding(
+                      padding: EdgeInsets.all(5),
+                      child: Container(
+                        child: StrokeText(
+                        text: name.toString(),
+                          textStyle: TextStyle(
+                            fontSize: 21,
+                            color: Colors.black
+                          ),
+                          strokeColor: Colors.white,
+                          strokeWidth: 1.7,
+                        ),
+                      ),
+                    ),
+                    ]
+                  ),
+                )
+              ],
           ),
           onTap: () {
             if(index == 0 ) {
@@ -155,4 +187,41 @@ class _MainImageState extends State<MainImage> {
 }
 
 
+class StrokeText extends StatelessWidget {
+  final String text;
+  final TextStyle textStyle;
+  final Color strokeColor;
+  final double strokeWidth;
+
+  StrokeText({
+    required this.text,
+    required this.textStyle,
+    this.strokeColor = Colors.white,
+    this.strokeWidth = 2.0,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        // Stroked text
+        Text(
+          text,
+          style: textStyle.copyWith(
+            foreground: Paint()
+              ..style = PaintingStyle.stroke
+              ..strokeWidth = strokeWidth
+              ..color = strokeColor,
+          ),
+        ),
+
+        // Solid text
+        Text(
+          text,
+          style: textStyle,
+        ),
+      ],
+    );
+  }
+}
 

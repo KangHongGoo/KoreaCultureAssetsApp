@@ -163,7 +163,7 @@ class MainImageController extends GetxController {
 
     Map<String, dynamic> dataUrl6 = jsonDecode(jsonDataUrl6);
 
-    nameUrl1.value = dataUrl6['result']['item']['ccbaMnm1'];
+    nameUrl2.value = dataUrl6['result']['item']['ccbaMnm1'];
 
     //////////////////////////////
 
@@ -174,7 +174,7 @@ class MainImageController extends GetxController {
 
     Map<String, dynamic> dataUrl7 = jsonDecode(jsonDataUrl7);
 
-    nameUrl1.value = dataUrl7['result']['item']['ccbaMnm1'];
+    nameUrl3.value = dataUrl7['result']['item']['ccbaMnm1'];
 
     ////////////////////////////
 
@@ -185,7 +185,7 @@ class MainImageController extends GetxController {
 
     Map<String, dynamic> dataUrl8 = jsonDecode(jsonDataUrl8);
 
-    nameUrl1.value = dataUrl8['result']['item']['ccbaMnm1'];
+    nameUrl4.value = dataUrl8['result']['item']['ccbaMnm1'];
 
     isLoading.value = false;
   }
