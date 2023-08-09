@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:get/get.dart';
-import 'package:mapmapmap/src/datatypes/national_treasure_list.dart';
-import 'package:mapmapmap/src/datatypes/treasure_list.dart';
+import 'package:mapmapmap/src/datatypes/national_treasure_list_data.dart';
+import 'package:mapmapmap/src/datatypes/treasure_list_data.dart';
 import 'package:http/http.dart' as http;
 import 'package:xml2json/xml2json.dart';
 

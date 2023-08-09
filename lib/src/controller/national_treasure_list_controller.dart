@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:mapmapmap/src/datatypes/national_treasure_list.dart';
+import 'package:mapmapmap/src/datatypes/national_treasure_list_data.dart';
 import 'package:mapmapmap/src/detail/national_treasure_detail.dart';
 import 'package:xml2json/xml2json.dart';
 import 'package:http/http.dart' as http;

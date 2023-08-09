@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mapmapmap/src/list/performance_list.dart';
 import 'package:mapmapmap/src/mainImage/main_img.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 
@@ -17,26 +17,13 @@ class RealHome extends StatelessWidget {
           Expanded(
             child: MainImage(),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(15.0, 0, 0, 0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text("이달의 행사",
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
-
-          Expanded(
-            flex: 1,
-            child: Container(
-              child: PerformanceList(),
-            ),
-          ),
-
         ],
       ),
     );
+
   }
+
+
+
 }
+

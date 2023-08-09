@@ -5,7 +5,6 @@ import 'package:mapmapmap/src/controller/national_treasure_list_controller.dart'
 import 'package:mapmapmap/src/controller/treasure_list_controller.dart';
 import 'package:mapmapmap/src/list/national_treasure_list.dart';
 import 'package:mapmapmap/src/list/real_home.dart';
-import 'package:mapmapmap/src/list/reservation_main.dart';
 
 GeolocatorController geolocatorController = Get.put(GeolocatorController());
 NationalTreasureListController nationalTreasureListController = Get.put(NationalTreasureListController());
@@ -52,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage>{
   final List<Widget> _screens = <Widget>[
     RealHome(),
     NationalTreasureList(),
-    ReservationMain(),
+
   ];
 
 void _onItemTapped(int index) {
@@ -72,16 +71,16 @@ void _onItemTapped(int index) {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(Icons.home, color: Colors.black54,),
-          label: '메인 홈',
+          label: '?',
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.map_outlined, color: Colors.black54,),
               label: '국보/보물 위치'
           ),
-          BottomNavigationBarItem(
+         /* BottomNavigationBarItem(
               icon: Icon(Icons.calendar_today, color: Colors.black54,),
-              label: '체험 예약'
-          ),
+              label: '체험 정보'
+          ),*/
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.black,
