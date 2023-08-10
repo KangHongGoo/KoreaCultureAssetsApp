@@ -24,6 +24,7 @@ class NationalTreasureDetail extends StatelessWidget {
         "Content-Type": "application/json",
       },
     );
+    //xml형식을 json으로 변환
     final getXmlData = response.body;
     final Xml2JsonData = Xml2Json()..parse(getXmlData);
     final jsonData = Xml2JsonData.toParker();
