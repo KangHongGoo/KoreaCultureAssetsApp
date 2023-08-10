@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:mapmapmap/src/datatypes/national_treasure_list_data.dart';
 import 'package:mapmapmap/src/detail/national_treasure_detail.dart';
 import 'package:xml2json/xml2json.dart';
 import 'package:http/http.dart' as http;
@@ -32,9 +31,10 @@ class NationalTreasureListController extends GetxController {
 
   String selectedNationalTreasureRegionCode = '11';
 
+  // ccbaCtcd = 시도코드
   void updateSelectedRegion(String ccbaCtcd) {
     selectedNationalTreasureRegionCode = ccbaCtcd;
-    polylines.clear();
+    polylines.clear(); // 지역 변경 할 때 마다 폴리라인 초기화
     loadData();
   }
 
@@ -82,6 +82,7 @@ class NationalTreasureListController extends GetxController {
         "Content-Type": "application/json",
       },
     );
+    // API가 XML형식이어서 JSON으로 변환
     final getXmlData = response.body;
     final Xml2JsonData = Xml2Json()..parse(getXmlData);
     final jsonData = Xml2JsonData.toParker();
@@ -89,8 +90,6 @@ class NationalTreasureListController extends GetxController {
     Map<String, dynamic> data = jsonDecode(jsonData);
 
     List<dynamic> items = data['result']['item'];
-    List<NationalTreasure> natidata = List<NationalTreasure>.from(
-        items.map((x) => NationalTreasure.fromJson(x)));
 
     Set<Marker> markers = {};
     Set<Marker> tempMarkers = {};
@@ -99,6 +98,7 @@ class NationalTreasureListController extends GetxController {
       String ccbaAsno = item['ccbaAsno'];
       String ccbaCtcd = item['ccbaCtcd'];
 
+      //커스텀 마커를 생성
       BitmapDescriptor customMarkerIcon = await BitmapDescriptor.fromAssetImage(
         ImageConfiguration(size: Size(1, 1)),
         'assets/pin_last.png',
@@ -107,12 +107,15 @@ class NationalTreasureListController extends GetxController {
       Marker marker = Marker(
           markerId: MarkerId(item['no']),
           infoWindow: InfoWindow(
-              title: "${item['ccbaMnm1']}",
-              snippet: "${item['ccbaAdmin']}",
+              title: "${item['ccbaMnm1']}", // 문화재 명
+              snippet: "${item['ccbaAdmin']}", // 지역 or 보관장소
               onTap: () {
                 Get.to(NationalTreasureDetail(
-                    ccbaAsno: ccbaAsno, ccbaCtcd: ccbaCtcd));
-              }),
+                    ccbaAsno: ccbaAsno, ccbaCtcd: ccbaCtcd
+                )
+                );
+              }
+              ),
           position: LatLng(
               double.parse(item['latitude']), double.parse(item['longitude'])),
           icon: customMarkerIcon,

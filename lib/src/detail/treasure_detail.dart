@@ -36,10 +36,12 @@ class TreasureDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('문화재 정보'),
-        backgroundColor: Colors.blueGrey[800],
-      ),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(40.0),
+        child: AppBar(
+          title: Text("보물 정보"),
+          backgroundColor: Colors.blueGrey,
+        ),),
       body: SingleChildScrollView(
         child: Center(
           child: FutureBuilder<Map<String, dynamic>>(

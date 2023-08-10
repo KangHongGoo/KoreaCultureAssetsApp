@@ -14,17 +14,19 @@ class RealHome extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Flexible(
+          Expanded(
             child: MainImage(),
           ),
-          Flexible(
+          Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(onTap: (){
                     Get.to(NationalTreasureList());
                   }, child: Image.asset(
-                    'assets/haetae.png',
+                    'assets/map.jpg',
+                    height: 395,
+                    width: 395,
                   ),
 
                   ),

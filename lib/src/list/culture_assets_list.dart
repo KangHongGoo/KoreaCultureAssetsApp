@@ -11,7 +11,7 @@ class NationalTreasureList extends StatefulWidget {
   @override
   State<NationalTreasureList> createState() => _NationalTreasureListState();
 }
-
+// 국보, 보물 컨트롤러 선언
 final NationalTreasureListController nationalTreasureListController =
 Get.put(NationalTreasureListController());
 final TreasureListController treasureListController =
@@ -25,15 +25,15 @@ class _NationalTreasureListState extends State<NationalTreasureList> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(35.0),
+          preferredSize: Size.fromHeight(40.0),
           child: AppBar(
             title: Text("Culture Assets"),
-            backgroundColor: Colors.grey[400],
+            backgroundColor: Colors.blueGrey[400],
           ),),
         body: Column(
           children: [
             Expanded(
-              child: Obx(() => nationalTreasureListController.isToggleActive.value
+              child: Obx(() => nationalTreasureListController.isToggleActive.value // 토글이 눌리면 보물, 그렇지 않으면 국보
                   ? Stack(
                 children: [
                   GoogleMap(
@@ -46,6 +46,7 @@ class _NationalTreasureListState extends State<NationalTreasureList> {
                       polylines: Set<Polyline>.from(
                           treasureListController.polylines)),
                   Align(
+                    // 지역 선택하는 드롭다운 버튼
                     alignment: Alignment.topRight,
                     child: Padding(
                       padding: EdgeInsets.only(top: 22),
