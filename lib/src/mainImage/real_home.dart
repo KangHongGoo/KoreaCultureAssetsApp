@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mapmapmap/src/list/culture_assets_list.dart';
 import 'package:mapmapmap/src/mainImage/main_img.dart';
-import 'package:url_launcher/url_launcher.dart';
-
+import 'package:get/get.dart';
 
 
 class RealHome extends StatelessWidget {
@@ -14,9 +14,22 @@ class RealHome extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Expanded(
+          Flexible(
             child: MainImage(),
           ),
+          Flexible(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(onTap: (){
+                    Get.to(NationalTreasureList());
+                  }, child: Image.asset(
+                    'assets/haetae.png',
+                  ),
+
+                  ),
+                ],
+              ))
         ],
       ),
     );

@@ -13,9 +13,9 @@ class NationalTreasureList extends StatefulWidget {
 }
 
 final NationalTreasureListController nationalTreasureListController =
-    Get.put(NationalTreasureListController());
+Get.put(NationalTreasureListController());
 final TreasureListController treasureListController =
-    Get.put(TreasureListController());
+Get.put(TreasureListController());
 
 class _NationalTreasureListState extends State<NationalTreasureList> {
   String selectedNationalTreasureRegionCode = '서울';
@@ -24,112 +24,118 @@ class _NationalTreasureListState extends State<NationalTreasureList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(35.0),
+          child: AppBar(
+            title: Text("Culture Assets"),
+            backgroundColor: Colors.grey[400],
+          ),),
         body: Column(
-      children: [
-        Expanded(
-          child: Obx(() => nationalTreasureListController.isToggleActive.value
-              ? Stack(
-                  children: [
-                    GoogleMap(
-                        initialCameraPosition: CameraPosition(
-                          target: LatLng(36.5275, 128.0575),
-                          zoom: 7,
-                        ),
-                        markers:
-                            Set<Marker>.from(treasureListController.markers),
-                        polylines: Set<Polyline>.from(
-                            treasureListController.polylines)),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 22),
-                        child: DropdownButton<String>(
-                          value: selectedTreasureRegionCode,
-                          onChanged: (String? newValue) {
-                            selectedTreasureRegionCode = newValue!;
-                            String regionCode = treasureListController
-                                .treasureRegionData[newValue]!;
-                            treasureListController
-                                .updateTreasureSelectedRegion(regionCode);
-                          },
-                          items: treasureListController.treasureRegionData.keys
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                        ),
+          children: [
+            Expanded(
+              child: Obx(() => nationalTreasureListController.isToggleActive.value
+                  ? Stack(
+                children: [
+                  GoogleMap(
+                      initialCameraPosition: CameraPosition(
+                        target: LatLng(36.5275, 128.0575),
+                        zoom: 7,
+                      ),
+                      markers:
+                      Set<Marker>.from(treasureListController.markers),
+                      polylines: Set<Polyline>.from(
+                          treasureListController.polylines)),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 22),
+                      child: DropdownButton<String>(
+                        value: selectedTreasureRegionCode,
+                        onChanged: (String? newValue) {
+                          selectedTreasureRegionCode = newValue!;
+                          String regionCode = treasureListController
+                              .treasureRegionData[newValue]!;
+                          treasureListController
+                              .updateTreasureSelectedRegion(regionCode);
+                        },
+                        items: treasureListController.treasureRegionData.keys
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                       ),
                     ),
-                    Positioned(
-                      bottom: MediaQuery.of(context).size.height * 0.12,
-                      right: MediaQuery.of(context).size.width * 0.01,
-                      child: FloatingActionButton(
-                        onPressed: () {
-                          nationalTreasureListController.toggleMarkers();
-                        },
-                        child: Icon(
-                          nationalTreasureListController.isToggleActive.value
-                              ? Icons.toggle_on_outlined
-                              : Icons.toggle_off_outlined,
-                        ),
-                      ),
-                    )
-                  ],
-                )
-              : Stack(
-                  children: [
-                    GoogleMap(
-                        initialCameraPosition: CameraPosition(
-                          target: LatLng(36.5275, 128.0575),
-                          zoom: 7,
-                        ),
-                        markers: Set<Marker>.from(
-                            nationalTreasureListController.markers),
-                        polylines: Set<Polyline>.from(
-                            nationalTreasureListController.polylines)),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 22),
-                        child: DropdownButton<String>(
-                          value: selectedNationalTreasureRegionCode,
-                          onChanged: (String? newValue) {
-                            selectedNationalTreasureRegionCode = newValue!;
-                            String regionCode = nationalTreasureListController
-                                .regionData[newValue]!;
-                            nationalTreasureListController
-                                .updateSelectedRegion(regionCode);
-                          },
-                          items: nationalTreasureListController.regionData.keys
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                        ),
+                  ),
+                  Positioned(
+                    bottom: MediaQuery.of(context).size.height * 0.12,
+                    right: MediaQuery.of(context).size.width * 0.01,
+                    child: FloatingActionButton(
+                      onPressed: () {
+                        nationalTreasureListController.toggleMarkers();
+                      },
+                      child: Icon(
+                        nationalTreasureListController.isToggleActive.value
+                            ? Icons.toggle_on_outlined
+                            : Icons.toggle_off_outlined,
                       ),
                     ),
-                    Positioned(
-                      bottom: MediaQuery.of(context).size.height * 0.12,
-                      right: MediaQuery.of(context).size.width * 0.01,
-                      child: FloatingActionButton(
-                        onPressed: () {
-                          nationalTreasureListController.toggleMarkers();
-                        },
-                        child: Icon(
-                          nationalTreasureListController.isToggleActive.value
-                              ? Icons.toggle_on_outlined
-                              : Icons.toggle_off_outlined,
-                        ),
+                  )
+                ],
+              )
+                  : Stack(
+                children: [
+                  GoogleMap(
+                      initialCameraPosition: CameraPosition(
+                        target: LatLng(36.5275, 128.0575),
+                        zoom: 7,
                       ),
-                    )
-                  ],
-                )),
-        ),
-      ],
-    ));
+                      markers: Set<Marker>.from(
+                          nationalTreasureListController.markers),
+                      polylines: Set<Polyline>.from(
+                          nationalTreasureListController.polylines)),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 22),
+                      child: DropdownButton<String>(
+                        value: selectedNationalTreasureRegionCode,
+                        onChanged: (String? newValue) {
+                          selectedNationalTreasureRegionCode = newValue!;
+                          String regionCode = nationalTreasureListController
+                              .regionData[newValue]!;
+                          nationalTreasureListController
+                              .updateSelectedRegion(regionCode);
+                        },
+                        items: nationalTreasureListController.regionData.keys
+                            .map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: MediaQuery.of(context).size.height * 0.12,
+                    right: MediaQuery.of(context).size.width * 0.01,
+                    child: FloatingActionButton(
+                      onPressed: () {
+                        nationalTreasureListController.toggleMarkers();
+                      },
+                      child: Icon(
+                        nationalTreasureListController.isToggleActive.value
+                            ? Icons.toggle_on_outlined
+                            : Icons.toggle_off_outlined,
+                      ),
+                    ),
+                  )
+                ],
+              )),
+            ),
+          ],
+        ));
   }
 }

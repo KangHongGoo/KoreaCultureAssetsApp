@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'MapMapMap',
       theme: ThemeData(
-      fontFamily: 'Goong'
-    ),
+          fontFamily: 'Goong'
+      ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
@@ -40,55 +40,25 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-   MyHomePage({Key? key}) : super(key: key);
+  MyHomePage({Key? key}) : super(key: key);
 
-   @override
-   _MyHomePageState createState() => _MyHomePageState();
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
 }
 class _MyHomePageState extends State<MyHomePage>{
-  int _selectedIndex = 0;
 
-  final List<Widget> _screens = <Widget>[
-    RealHome(),
-    NationalTreasureList(),
-
-  ];
-
-void _onItemTapped(int index) {
-  setState(() {
-    _selectedIndex = index;
-  });
-}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(35.0),
+        child: AppBar(
+          title: Text("Culture Assets"),
+          backgroundColor: Colors.grey[400],
+        ),),
       body: Center(
-        child: _screens.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey[200],
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: Colors.black54,),
-          label: '?',
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.map_outlined, color: Colors.black54,),
-              label: '국보/보물 위치'
-          ),
-         /* BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today, color: Colors.black54,),
-              label: '체험 정보'
-          ),*/
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        selectedFontSize: 16,
-        unselectedItemColor: Colors.black87,
-        unselectedFontSize: 13,
-        onTap: _onItemTapped,
-        type: BottomNavigationBarType.fixed,
+        child: RealHome(),
       ),
     );
   }
