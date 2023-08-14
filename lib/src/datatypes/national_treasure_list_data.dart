@@ -1,6 +1,3 @@
-// To parse this JSON data, do
-//
-//     final nationalTreasureList = nationalTreasureListFromJson(jsonString);
 
 import 'dart:convert';
 

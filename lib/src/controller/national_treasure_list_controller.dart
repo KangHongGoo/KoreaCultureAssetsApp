@@ -50,12 +50,11 @@ class NationalTreasureListController extends GetxController {
   void clearMarkers() {
     markers.clear();
   }
-
+      // lat1, lng1 과 lat2 , lng2 두 지점 사이에 경로를 찾기 위한 함수
   Future<List<dynamic>> LoadPositions(
       double lat1, double lng1, double lat2, double lng2) async {
     String url =
         'https://naveropenapi.apigw.ntruss.com/map-direction-15/v1/driving?start=${lat1},${lng1}&goal=${lat2},${lng2}&option=traoptimal';
-    print(url);
 
     final response = await http.get(Uri.parse(url), headers: {
       "X-NCP-APIGW-API-KEY-ID": "ywb9wu3rko",
@@ -73,6 +72,8 @@ class NationalTreasureListController extends GetxController {
   }
 
   Future<Set<Marker>> LoadNationalTreasureList(String ccbaCtcd) async {
+
+    // 지역별로 나누기 위해 지역코드인 ccbaCtcd를 변수로 선언
     String url =
         "http://www.cha.go.kr/cha/SearchKindOpenapiList.do?ccbaKdcd=11&pageUnit=400&ccbaCtcd=${ccbaCtcd}";
 
@@ -106,10 +107,10 @@ class NationalTreasureListController extends GetxController {
 
       Marker marker = Marker(
           markerId: MarkerId(item['no']),
-          infoWindow: InfoWindow(
+          infoWindow: InfoWindow(           // 마커를 탭하면 정보 창 표시
               title: "${item['ccbaMnm1']}", // 문화재 명
               snippet: "${item['ccbaAdmin']}", // 지역 or 보관장소
-              onTap: () {
+              onTap: () {                     // 정보 창을 탭 했을 시 자세히보기로 넘어감
                 Get.to(NationalTreasureDetail(
                     ccbaAsno: ccbaAsno, ccbaCtcd: ccbaCtcd
                 )
@@ -117,21 +118,22 @@ class NationalTreasureListController extends GetxController {
               }
               ),
           position: LatLng(
-              double.parse(item['latitude']), double.parse(item['longitude'])),
+              double.parse(item['latitude']), double.parse(item['longitude']) // 마커의 위치에 필요한 좌표값
+          ),
           icon: customMarkerIcon,
-          onTap: () async {
+          onTap: () async {    // 마커를 탭 할 시에 지정된 마커의 위치와 현재 위치 사이에 경로를 가져옴
             List<dynamic> coordinatesData = await LoadPositions(
                 lng1.toDouble(),
                 lat1.toDouble(),
                 double.parse(item['longitude']),
                 double.parse(item['latitude']));
 
-            List<List<double>> newData = coordinatesData
+            List<List<double>> newData = coordinatesData   // 위에서 가져온 좌표를 List<double> 형태로 변환
                 .map<List<double>>((e) => List<double>.from(e))
                 .toList();
-            List<LatLng> positions =
+            List<LatLng> positions =              // 변환된 좌표 데이터를 LatLng 객체로 변환하여 저장
                 newData.map((e) => LatLng(e[1], e[0])).toList();
-            polylines.value = {
+            polylines.value = {                   // 폴리라인 생성 및 디자인
               (Polyline(
                 polylineId: PolylineId("1"),
                 points: positions,

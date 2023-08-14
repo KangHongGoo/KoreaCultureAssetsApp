@@ -1,15 +1,11 @@
 
-import 'dart:convert';
-
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:mapmapmap/src/controller/main_image_controller.dart';
 import 'package:mapmapmap/src/detail/national_treasure_detail.dart';
 import 'package:mapmapmap/src/detail/treasure_detail.dart';
-import 'package:xml2json/xml2json.dart';
 
 
 

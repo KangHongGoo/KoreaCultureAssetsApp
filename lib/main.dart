@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:mapmapmap/src/controller/geolacator_controller.dart';
 import 'package:mapmapmap/src/controller/national_treasure_list_controller.dart';
 import 'package:mapmapmap/src/controller/treasure_list_controller.dart';
-import 'package:mapmapmap/src/list/culture_assets_list.dart';
 import 'package:mapmapmap/src/mainImage/real_home.dart';
 
 GeolocatorController geolocatorController = Get.put(GeolocatorController());

@@ -3,7 +3,6 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mapmapmap/src/controller/national_treasure_list_controller.dart';
 import 'package:get/get.dart';
 import 'package:mapmapmap/src/controller/treasure_list_controller.dart';
-import 'package:geolocator/geolocator.dart';
 
 class NationalTreasureList extends StatefulWidget {
   NationalTreasureList({Key? key}) : super(key: key);

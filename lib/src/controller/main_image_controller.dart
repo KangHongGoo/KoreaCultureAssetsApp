@@ -12,16 +12,19 @@ class MainImageController extends GetxController {
   List<Treasure> treasureList = [];
   RxBool isLoading = false.obs;
 
+  // 메인 화면에 이미지를 가져오기위한 변수 imgUrl 선언
   RxString imgUrl1 = "".obs;
   RxString imgUrl2 = "".obs;
   RxString imgUrl3 = "".obs;
   RxString imgUrl4 = "".obs;
 
+  // 각 이미지에 맞는 이름을 출력하기 위한 nameUrl 선언
   RxString nameUrl1 = "".obs;
   RxString nameUrl2 = "".obs;
   RxString nameUrl3 = "".obs;
   RxString nameUrl4 = "".obs;
 
+  // 시도코드, 관리번호 선언
   RxString ccbaCtcd1 = "".obs;
   RxString ccbaAsno1 = "".obs;
 
@@ -45,6 +48,7 @@ class MainImageController extends GetxController {
         "Content-Type": "application/json",
       },
     );
+    // XML데이터형식을 JSON형식으로 변환
     final getXmlData = nationalResponse.body;
     final Xml2JsonData = Xml2Json()..parse(getXmlData);
     final jsonData = Xml2JsonData.toParker();
@@ -73,7 +77,9 @@ class MainImageController extends GetxController {
 
     // 사진 랜덤으로 가져올것
     var random = Random();
+
     int randomNumber1 = random.nextInt(357) + 1;
+    // 보물은 사진이 3장이기때문에 겹치지 않기위해 앞선값들 제외
     int randomNumber2 = random.nextInt(813) + 1;
     int randomNumber3 = random.nextInt(813) + 813;
     int randomNumber4 = random.nextInt(813) + 1626;
