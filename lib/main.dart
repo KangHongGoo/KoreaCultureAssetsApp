@@ -51,7 +51,13 @@ class _MyHomePageState extends State<MyHomePage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(40.0),
+        child: AppBar(
+          title: Text('우리나라 문화재'),
+          backgroundColor: Colors.blueGrey,
+        ),
+      ),
       body: Center(
         child: RealHome(),
       ),
