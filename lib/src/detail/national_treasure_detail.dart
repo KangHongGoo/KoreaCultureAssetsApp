@@ -93,7 +93,7 @@ class NationalTreasureDetail extends StatelessWidget {
                             TextSpan(
                               text: data['result']['item']['ccbaMnm1'],
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 17),
+                                  fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                           ],
                         ),

@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'MapMapMap',
       theme: ThemeData(
-          fontFamily: 'Goong'
+          fontFamily: 'Goong',
+              scaffoldBackgroundColor: Colors.grey[300]
       ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,

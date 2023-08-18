@@ -90,7 +90,7 @@ class TreasureDetail extends StatelessWidget {
                         TextSpan(
                           text: data['result']['item']['ccbaMnm1'],
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 17),
+                              fontWeight: FontWeight.bold, fontSize: 20),
                         ),
                       ),
                     ),
@@ -111,7 +111,7 @@ class TreasureDetail extends StatelessWidget {
                           data['result']['item']['content']
                               .replaceAll('\\n', '')
                               .replaceAll('\\', ''),
-                          style: TextStyle(fontSize: 15),
+                          style: TextStyle(fontSize: 17),
                         ),
                       ),
                     ),

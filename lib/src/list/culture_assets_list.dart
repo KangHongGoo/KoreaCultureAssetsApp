@@ -26,9 +26,15 @@ class _NationalTreasureListState extends State<NationalTreasureList> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(40.0),
           child: AppBar(
-            title: Text("Culture Assets"),
+            title: Obx(() => Text(
+          nationalTreasureListController.isToggleActive.value
+          ? "보물 위치"
+              : "국보 위치",
+              )
+            ),
             backgroundColor: Colors.blueGrey[400],
-          ),),
+          ),
+        ),
         body: Column(
           children: [
             Expanded(

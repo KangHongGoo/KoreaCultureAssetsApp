@@ -21,12 +21,6 @@ class _MainImageState extends State<MainImage> {
   int current = 0;
   final CarouselController controller = CarouselController();
 
-  List imageList = [
-    "assets/img11.jpg",
-    "assets/img14.jpg",
-    "assets/img13.jpg",
-    "assets/img12.jpg",
-  ];
   @override
   void initState() {
     // TODO: implement initState
@@ -51,41 +45,13 @@ class _MainImageState extends State<MainImage> {
 
                 children: [
                   sliderWidget(mainImageController),
-                sliderIndicator(),
               ],
             ),
-             
+
           ),
         ],
       ),
     )
-    );
-  }
-
-
-  Widget sliderIndicator() {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: imageList
-            .asMap()
-            .entries
-            .map((e) => GestureDetector(
-          onTap: () => controller.animateToPage(e.key),
-          child: Container(
-            width: 10,
-            height: 10,
-            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 4),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white
-                  .withOpacity(current == e.key ? 1.0 : 0.4),
-            ),
-          ),
-        ))
-            .toList(),
-      ),
     );
   }
 
@@ -122,19 +88,31 @@ class _MainImageState extends State<MainImage> {
             final url = entry.value["imgUrl"];
             final name = entry.value["name"];
         return Padding(
-          padding: EdgeInsets.fromLTRB(3, 1, 3, 1),
+          padding: EdgeInsets.fromLTRB(13, 13, 13, 8),
           child: GestureDetector(
             child: SafeArea(
               child: Stack(
                   children: [
-                    SizedBox(
+                    Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
-                      child: Image(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(url.toString()),
-
-                  ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                          child: Image(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(url.toString()
+                          ),
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.5),
+                            blurRadius: 10.0,
+                            offset: Offset(1.1, 1.1),
+                          )
+                        ]
+                      ),
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width,
