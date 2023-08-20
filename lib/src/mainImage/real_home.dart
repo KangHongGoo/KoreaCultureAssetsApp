@@ -25,8 +25,8 @@ class RealHome extends StatelessWidget {
                     Get.to(NationalTreasureList());
                   }, child: Image.asset(
                     'assets/map.jpg',
-                    height: 395,
-                    width: 395,
+                    height: 375,
+                    width: 375,
                   ),
 
                   ),

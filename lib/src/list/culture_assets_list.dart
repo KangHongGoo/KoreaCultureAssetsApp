@@ -54,23 +54,29 @@ class _NationalTreasureListState extends State<NationalTreasureList> {
                     // 지역 선택하는 드롭다운 버튼
                     alignment: Alignment.topRight,
                     child: Padding(
-                      padding: EdgeInsets.only(top: 22),
-                      child: DropdownButton<String>(
-                        value: selectedTreasureRegionCode,
-                        onChanged: (String? newValue) {
-                          selectedTreasureRegionCode = newValue!;
-                          String regionCode = treasureListController
-                              .treasureRegionData[newValue]!;
-                          treasureListController
-                              .updateTreasureSelectedRegion(regionCode);
-                        },
-                        items: treasureListController.treasureRegionData.keys
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
+                      padding: EdgeInsets.only(top: 7),
+                      child: SingleChildScrollView(
+                        child: DropdownButton<String>(
+                          value: selectedTreasureRegionCode,
+                          onChanged: (String? newValue) {
+                            selectedTreasureRegionCode = newValue!;
+                            String regionCode = treasureListController
+                                .treasureRegionData[newValue]!;
+                            treasureListController
+                                .updateTreasureSelectedRegion(regionCode);
+                          },
+                          items: treasureListController.treasureRegionData.keys
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value,
+                              style: TextStyle(
+                                fontSize: 20
+                              ),),
+                            );
+                          }).toList(),
+                          menuMaxHeight: 200, // 드롭다운 길이조절
+                        ),
                       ),
                     ),
                   ),
@@ -104,23 +110,29 @@ class _NationalTreasureListState extends State<NationalTreasureList> {
                   Align(
                     alignment: Alignment.topRight,
                     child: Padding(
-                      padding: EdgeInsets.only(top: 22),
-                      child: DropdownButton<String>(
-                        value: selectedNationalTreasureRegionCode,
-                        onChanged: (String? newValue) {
-                          selectedNationalTreasureRegionCode = newValue!;
-                          String regionCode = nationalTreasureListController
-                              .regionData[newValue]!;
-                          nationalTreasureListController
-                              .updateSelectedRegion(regionCode);
-                        },
-                        items: nationalTreasureListController.regionData.keys
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
+                      padding: EdgeInsets.only(top: 7),
+                      child: SingleChildScrollView(
+                        child: DropdownButton<String>(
+                          value: selectedNationalTreasureRegionCode,
+                          onChanged: (String? newValue) {
+                            selectedNationalTreasureRegionCode = newValue!;
+                            String regionCode = nationalTreasureListController
+                                .regionData[newValue]!;
+                            nationalTreasureListController
+                                .updateSelectedRegion(regionCode);
+                          },
+                          items: nationalTreasureListController.regionData.keys
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value,
+                                style: TextStyle(
+                                    fontSize: 20
+                                ),),
+                            );
+                          }).toList(),
+                          menuMaxHeight: 200,
+                        ),
                       ),
                     ),
                   ),

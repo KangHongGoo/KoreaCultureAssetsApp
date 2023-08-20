@@ -32,14 +32,13 @@ class _MainImageState extends State<MainImage> {
   Widget build(BuildContext context) {
 
 
-    return  Obx(() =>
-        Scaffold(
+    return Obx(() =>Scaffold(
         body: Column(
           children: [
            SizedBox(
               height: 360,
               child: mainImageController.isLoading.value ?
-              Image.asset("assets/gbg.jpg")
+              Image.asset("assets/gbg2.png")
                   :
               Stack(
 
@@ -53,6 +52,7 @@ class _MainImageState extends State<MainImage> {
       ),
     )
     );
+
   }
 
   Widget sliderWidget(MainImageController mainImageController) {
