@@ -4,11 +4,11 @@ import 'package:mapmapmap/src/controller/national_treasure_list_controller.dart'
 import 'package:get/get.dart';
 import 'package:mapmapmap/src/controller/treasure_list_controller.dart';
 
-class NationalTreasureList extends StatefulWidget {
-  NationalTreasureList({Key? key}) : super(key: key);
+class CultureAssetsList extends StatefulWidget {
+  CultureAssetsList({Key? key}) : super(key: key);
 
   @override
-  State<NationalTreasureList> createState() => _NationalTreasureListState();
+  State<CultureAssetsList> createState() => _CultureAssetsList();
 }
 // 국보, 보물 컨트롤러 선언
 final NationalTreasureListController nationalTreasureListController =
@@ -16,7 +16,7 @@ Get.put(NationalTreasureListController());
 final TreasureListController treasureListController =
 Get.put(TreasureListController());
 
-class _NationalTreasureListState extends State<NationalTreasureList> {
+class _CultureAssetsList extends State<CultureAssetsList> {
   String selectedNationalTreasureRegionCode = '서울';
   String selectedTreasureRegionCode = '서울';
 
@@ -57,6 +57,7 @@ class _NationalTreasureListState extends State<NationalTreasureList> {
                       padding: EdgeInsets.only(top: 7),
                       child: SingleChildScrollView(
                         child: DropdownButton<String>(
+                          borderRadius: BorderRadius.circular(8.0),
                           value: selectedTreasureRegionCode,
                           onChanged: (String? newValue) {
                             selectedTreasureRegionCode = newValue!;

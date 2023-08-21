@@ -83,27 +83,38 @@ class TreasureDetail extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border(top: BorderSide(width: 3))),
-                      child: Text.rich(
-                        TextSpan(
-                          text: data['result']['item']['ccbaMnm1'],
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
+                    Center(
+                      
+                      child: Container(
+                        decoration: BoxDecoration(
+                            border: Border(top: BorderSide(width: 3))),
+                        child: Text.rich(
+                          TextSpan(
+                            text: data['result']['item']['ccbaMnm1'],
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
                         ),
                       ),
                     ),
                     Container(
                       padding: EdgeInsets.all(15),
-                      child: Image.network(data['result']['item']['imageUrl']),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(data['result']['item']['imageUrl'])
+                      ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(14.0),
+                      padding: EdgeInsets.only(
+                        left: 15,
+                        right: 15,
+                        top: 5,
+                        bottom: 15,
+                      ),
                       child: Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage('assets/nice_yellow.jpg'),
+                                image: AssetImage('assets/background_yellow.jpg'),
                                 fit: BoxFit.cover),
                             border: Border.all(width: 1)),
                         padding: EdgeInsets.all(15),

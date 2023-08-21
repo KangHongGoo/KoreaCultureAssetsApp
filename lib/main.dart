@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mapmapmap/src/controller/geolacator_controller.dart';
 import 'package:mapmapmap/src/controller/national_treasure_list_controller.dart';
 import 'package:mapmapmap/src/controller/treasure_list_controller.dart';
+import 'package:mapmapmap/src/mainImage/main_img.dart';
 import 'package:mapmapmap/src/mainImage/real_home.dart';
 
 GeolocatorController geolocatorController = Get.put(GeolocatorController());
@@ -58,8 +59,15 @@ class _MyHomePageState extends State<MyHomePage>{
           backgroundColor: Colors.blueGrey,
         ),
       ),
-      body: Center(
-        child: RealHome(),
+      body: Column(
+        children: [
+          Expanded(
+            child: MainImage(),
+          ),
+          Expanded(
+            child: RealHome(),
+          ),
+        ],
       ),
     );
   }

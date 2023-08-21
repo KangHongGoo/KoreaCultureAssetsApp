@@ -23,7 +23,6 @@ class _MainImageState extends State<MainImage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     mainImageController.loadImgUrls();
   }
@@ -37,11 +36,11 @@ class _MainImageState extends State<MainImage> {
           children: [
            SizedBox(
               height: 360,
+              // 로딩시에 대체 이미지 표시
               child: mainImageController.isLoading.value ?
               Image.asset("assets/gbg2.png")
                   :
               Stack(
-
                 children: [
                   sliderWidget(mainImageController),
               ],
@@ -88,7 +87,7 @@ class _MainImageState extends State<MainImage> {
             final url = entry.value["imgUrl"];
             final name = entry.value["name"];
         return Padding(
-          padding: EdgeInsets.fromLTRB(13, 13, 13, 8),
+          padding: EdgeInsets.fromLTRB(10, 15, 10, 15),
           child: GestureDetector(
             child: SafeArea(
               child: Stack(
@@ -131,6 +130,7 @@ class _MainImageState extends State<MainImage> {
                                        text: name.toString(),
                                        textStyle: TextStyle(
                                        fontSize:name.toString().length.toDouble() > 16 ? 14 : 30 - name.toString().length.toDouble() ,
+                                       // 문화재 이름이 16글자보다 길면 글자 크기 조절
                                        color: Color.fromRGBO(255, 255, 255, 1)
                                     ),
                                        strokeColor: Color.fromRGBO(0, 0, 0, 1),
@@ -149,10 +149,19 @@ class _MainImageState extends State<MainImage> {
             ),
             onTap: () {
               if(index == 0 ) {
-                Get.to(NationalTreasureDetail(
-                    ccbaAsno: entry.value["ccbaAsno"].toString(), ccbaCtcd: entry.value["ccbaCtcd"].toString()));
+                Get.to(
+                    NationalTreasureDetail(
+                        ccbaAsno: entry.value["ccbaAsno"].toString(),
+                        ccbaCtcd: entry.value["ccbaCtcd"].toString()
+                    )
+                );
               }else {
-                Get.to(TreasureDetail(ccbaAsno: entry.value["ccbaAsno"].toString(), ccbaCtcd: entry.value["ccbaCtcd"].toString()));
+                Get.to(
+                    TreasureDetail(
+                        ccbaAsno: entry.value["ccbaAsno"].toString(),
+                        ccbaCtcd: entry.value["ccbaCtcd"].toString()
+                    )
+                );
               }
             },
           ),
@@ -162,7 +171,7 @@ class _MainImageState extends State<MainImage> {
           height: 400,
           viewportFraction: 1.0,
           autoPlay: true,
-          autoPlayInterval: Duration(seconds: 10),
+          autoPlayInterval: Duration(seconds: 6),
           onPageChanged: (index, reason) {
             setState(() {
               current = index;

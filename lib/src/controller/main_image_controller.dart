@@ -102,6 +102,8 @@ class MainImageController extends GetxController {
     String url4 =
         "https://www.cha.go.kr/cha/SearchKindOpenapiDt.do?ccbaKdcd=12&ccbaAsno=${treasureList[randomNumber4].ccbaAsno}&ccbaCtcd=${treasureList[randomNumber4].ccbaCtcd}";
 
+    //////////////////국보 이미지 가져오기/////////////////////
+
     final response1 = await http
         .get(Uri.parse(url1), headers: {"Content-Type": "application/json"});
     final getXmlDataUrl1 = response1.body;
@@ -112,7 +114,7 @@ class MainImageController extends GetxController {
 
     imgUrl1.value = dataUrl1['result']['item']['imageUrl'];
 
-    //////////////////////////////////////
+    /////////////////////보물 이미지 가져오기/////////////////
 
     final response2 = await http
         .get(Uri.parse(url2), headers: {"Content-Type": "application/json"});
@@ -124,7 +126,7 @@ class MainImageController extends GetxController {
 
     imgUrl2.value = dataUrl2['result']['item']['imageUrl'];
 
-    /////////////////////////////////////
+    /////////////////////보물 이미지 가져오기/////////////////
 
     final response3 = await http
         .get(Uri.parse(url3), headers: {"Content-Type": "application/json"});
@@ -136,7 +138,7 @@ class MainImageController extends GetxController {
 
     imgUrl3.value = dataUrl3['result']['item']['imageUrl'];
 
-    //////////////////////////////////
+    /////////////////////보물 이미지 가져오기/////////////////
 
     final response4 = await http
         .get(Uri.parse(url4), headers: {"Content-Type": "application/json"});
@@ -149,7 +151,7 @@ class MainImageController extends GetxController {
     imgUrl4.value = dataUrl4['result']['item']['imageUrl'];
 
 
-    /////////////////////////////
+    ///////////////국보 이름 //////////////
 
     final response5 = await http.get(Uri.parse(url1), headers: {"Content-Type" : "application/json"} );
     final getXmlDataUrl5 = response5.body;
@@ -160,7 +162,7 @@ class MainImageController extends GetxController {
 
     nameUrl1.value = dataUrl5['result']['item']['ccbaMnm1'];
 
-    /////////////////////////////
+    ///////////////보물 이름//////////////
 
     final response6 = await http.get(Uri.parse(url2), headers: {"Content-Type" : "application/json"} );
     final getXmlDataUrl6 = response6.body;
@@ -171,7 +173,7 @@ class MainImageController extends GetxController {
 
     nameUrl2.value = dataUrl6['result']['item']['ccbaMnm1'];
 
-    //////////////////////////////
+    ///////////////보물 이름//////////////
 
     final response7 = await http.get(Uri.parse(url3), headers: {"Content-Type" : "application/json"} );
     final getXmlDataUrl7 = response7.body;
@@ -182,7 +184,7 @@ class MainImageController extends GetxController {
 
     nameUrl3.value = dataUrl7['result']['item']['ccbaMnm1'];
 
-    ////////////////////////////
+    ///////////////보물 이름//////////////
 
     final response8 = await http.get(Uri.parse(url4), headers: {"Content-Type" : "application/json"} );
     final getXmlDataUrl8 = response8.body;

@@ -101,14 +101,21 @@ class NationalTreasureDetail extends StatelessWidget {
                     ),
                     Container(
                       padding: EdgeInsets.all(15),
-                      child: Image.network(data['result']['item']['imageUrl']),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(data['result']['item']['imageUrl'])),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(14.0),
+                      padding: EdgeInsets.only(
+                        left: 15,
+                        right: 15,
+                        top: 5,
+                        bottom: 15,
+                      ),
                       child: Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage('assets/nice_white.jpg'),
+                                image: AssetImage('assets/background_white.jpg'),
                                 fit: BoxFit.cover),
                             border: Border.all(width: 1.0)),
                         padding: EdgeInsets.all(15),
