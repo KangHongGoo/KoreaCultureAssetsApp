@@ -23,11 +23,16 @@ class GeolocatorController extends GetxController {
         throw Exception('위치 권한을 허가해주세요.');
       }
     }
-    Position currentPosition = await Geolocator.getCurrentPosition();
 
-    longitude.value = currentPosition.longitude;
-    latitude.value = currentPosition.latitude;
-
-    _isLoading = false;
+    try {
+      Position currentPosition = await Geolocator.getCurrentPosition();
+      longitude.value = currentPosition.longitude;
+      latitude.value = currentPosition.latitude;
+    } catch (error) {
+      print('Error fetching location: $error');
+      // 여기에서 적절한 예외 처리를 추가할 수 있습니다.
+    } finally {
+      _isLoading = false;
+    }
   }
 }
