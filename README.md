@@ -68,6 +68,7 @@
 
 우측 상단에 드롭다운 버튼을 이용해 지역을 선택합니다.
 <br>
+
 **문화재 정보 화면**
 <br>
 ![Untitled 3](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/4ce13747-5d55-4a17-9506-95959c517966)   ![Untitled 4](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/0961093d-52c1-4fd7-9ccb-caaaede1c8e1)
@@ -76,6 +77,7 @@
 
 마커를 탭 했을 때 나오는 인포윈도우를 또 다시 탭 하면 문화재의 자세한 정보를 표시하는 창을 띄웁니다.
 <br>
+
 **모빌리티 서비스 화면**
 <br>
 ![Untitled 5](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/5090556c-9f88-49b1-81dd-b18049b053ec)
