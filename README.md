@@ -48,10 +48,12 @@
 
 
 **어플 메인 화면**
+![image](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/daa6b534-74b7-46d7-a897-d30da413518e) ![Untitled](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/7767d60f-f19b-4692-a108-098d413758ac)
 
-![Untitled](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/7767d60f-f19b-4692-a108-098d413758ac)
 
 
+처음 어플을 시작하면 위치 서비스에 대한 동의를 얻습니다.
+위치 서비스를 통해 사용자 위치에 맞는 날씨를 제공합니다.
 메인 화면 이미지 사진을 사용자가 탭 하면 해당 문화재의 자세한 정보를 표시하는 창을 띄웁니다.
 
 **지도 (국보/보물) 화면**
