@@ -48,7 +48,9 @@
 
 
 **어플 메인 화면**
-![image](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/daa6b534-74b7-46d7-a897-d30da413518e) ![Untitled](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/7767d60f-f19b-4692-a108-098d413758ac)
+
+
+![image](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/daa6b534-74b7-46d7-a897-d30da413518e)  ![Untitled](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/7767d60f-f19b-4692-a108-098d413758ac)
 
 
 
