@@ -49,7 +49,8 @@
 
 **어플 메인 화면**
 
-![Untitled](%E1%84%91%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A5%E1%84%90%E1%85%A5%20ReadMe%201d07393ecb5640268eef4b82043193ed/Untitled.png)
+![Untitled](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/7767d60f-f19b-4692-a108-098d413758ac)
+
 
 메인 화면 이미지 사진을 사용자가 탭 하면 해당 문화재의 자세한 정보를 표시하는 창을 띄웁니다.
 
