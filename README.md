@@ -63,7 +63,7 @@
 
 **문화재 정보 화면**
 
-![Untitled 3](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/4ce13747-5d55-4a17-9506-95959c517966)![Untitled 4](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/0961093d-52c1-4fd7-9ccb-caaaede1c8e1)
+![Untitled 3](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/4ce13747-5d55-4a17-9506-95959c517966)  ![Untitled 4](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/0961093d-52c1-4fd7-9ccb-caaaede1c8e1)
 
 
 
