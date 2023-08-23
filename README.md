@@ -56,7 +56,9 @@
 
 **지도 (국보/보물) 화면**
 
-![Untitled 2](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/c19a9f94-c2ad-4ad8-ada9-1323056f5cd6)
+![Untitled 1](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/d1da3db4-4ea1-4e1b-9cf4-22fee1db3e48)![Untitled 2](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/7e907b88-070a-4e96-b794-38ea3c1b9498)
+
+
 
 
 우측 상단에 드롭다운 버튼을 이용해 지역을 선택합니다.
