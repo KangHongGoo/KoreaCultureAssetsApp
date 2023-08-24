@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mapmapmap/src/controller/geolacator_controller.dart';
 import 'package:get/get.dart';
@@ -113,7 +114,11 @@ class _RealHomeState extends State<RealHome> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("날씨 : ${nowWeather}"),
+                              Row(children: [
+                              Text("날씨 : "),
+                                Text(tr("${nowWeather}")),
+                          ],),
+
                               Text("현재기온 : ${celsiusTemp.toStringAsFixed(2)}°C"),
                               Text("습도 : ${humidity}%"),
                             ],

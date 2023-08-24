@@ -28,16 +28,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  flutter_native_splash: ^2.3.1
   carousel_slider: ^4.2.0
   google_maps_flutter: ^2.3.0
-  url_launcher: ^6.1.12
   geolocator: 9.0.2
   http: ^1.0.0
   xml2json: ^5.3.1
   get: ^4.6.5
-  flutter_date_range_picker: ^0.0.14
-
+  easy_localization: ^3.0.2
   flutter:
     sdk: flutter
 
@@ -78,6 +75,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

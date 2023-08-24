@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mapmapmap/src/controller/geolacator_controller.dart';
@@ -10,10 +11,19 @@ GeolocatorController geolocatorController = Get.put(GeolocatorController());
 NationalTreasureListController nationalTreasureListController = Get.put(NationalTreasureListController());
 TreasureListController treasureListController = Get.put(TreasureListController());
 
-void main() {
-
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   geolocatorController.checkPermission();
-  runApp(MyApp());
+
+  runApp( EasyLocalization(
+    saveLocale: true,
+    useOnlyLangCode: true,
+    supportedLocales: [Locale('en'), Locale('ko')],
+    path: 'assets/translations',
+    fallbackLocale: Locale('en'),
+    child: MyApp(),
+  ));
 
 }
 
@@ -29,6 +39,8 @@ class MyApp extends StatelessWidget {
     treasureListController.lng1 = geolocatorController.longitude;
 
     return GetMaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
       title: 'MapMapMap',
       theme: ThemeData(
           fontFamily: 'Goong',
