@@ -31,7 +31,7 @@
 # 🛠 개발 환경
 <br>
 
-- IDE : Android Stuiod 2022.3.1.19
+- IDE : Android Studio2022.3.1.19
 - Language : Dart(Flutter)
 <br>
 <br>
