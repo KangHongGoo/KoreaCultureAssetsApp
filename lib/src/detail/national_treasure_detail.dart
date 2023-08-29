@@ -60,30 +60,11 @@ class NationalTreasureDetail extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: '국보 제 ',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          TextSpan(
-                            text: data['result']['item']['crltsnoNm'],
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          TextSpan(
-                            text: ' 호',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    Text("국보",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17
+                    ),),
                     Container(
                       decoration: BoxDecoration(
                           border: Border(top: BorderSide(width: 3))),

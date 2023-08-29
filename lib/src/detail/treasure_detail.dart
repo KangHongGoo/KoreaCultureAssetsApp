@@ -59,30 +59,11 @@ class TreasureDetail extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: '보물 제 ',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          TextSpan(
-                            text: data['result']['item']['crltsnoNm'],
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          TextSpan(
-                            text: ' 호',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    Text("보물",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17
+                      ),),
                     Center(
                       
                       child: Container(

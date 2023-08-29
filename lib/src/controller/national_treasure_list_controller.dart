@@ -57,8 +57,9 @@ class NationalTreasureListController extends GetxController {
         'https://naveropenapi.apigw.ntruss.com/map-direction-15/v1/driving?start=${lat1},${lng1}&goal=${lat2},${lng2}&option=traoptimal';
 
     final response = await http.get(Uri.parse(url), headers: {
+      // Naver Direction 15 API KEY
       "X-NCP-APIGW-API-KEY-ID": "ywb9wu3rko",
-      "X-NCP-APIGW-API-KEY": "cQn8PC5mMhXlaB8LRu7RBdT1zPdj1pgYl0VaiCGL",
+      "X-NCP-APIGW-API-KEY": "0yBiwksBvWSLSLkVzNzszVsiIeLqCA3AeEj7QXpk",
     });
     Map<String, dynamic> data = jsonDecode(utf8.decode(response.bodyBytes));
 
@@ -83,6 +84,7 @@ class NationalTreasureListController extends GetxController {
         "Content-Type": "application/json",
       },
     );
+
     // API가 XML형식이어서 JSON으로 변환
     final getXmlData = response.body;
     final Xml2JsonData = Xml2Json()..parse(getXmlData);

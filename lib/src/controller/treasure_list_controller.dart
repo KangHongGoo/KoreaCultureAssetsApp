@@ -58,7 +58,7 @@ class TreasureListController extends GetxController {
 
     final response = await http.get(Uri.parse(url), headers: {
       "X-NCP-APIGW-API-KEY-ID": "ywb9wu3rko",
-      "X-NCP-APIGW-API-KEY": "cQn8PC5mMhXlaB8LRu7RBdT1zPdj1pgYl0VaiCGL",
+      "X-NCP-APIGW-API-KEY": "0yBiwksBvWSLSLkVzNzszVsiIeLqCA3AeEj7QXpk",
     });
     Map<String, dynamic> data = jsonDecode(utf8.decode(response.bodyBytes));
 
@@ -73,7 +73,7 @@ class TreasureListController extends GetxController {
 
   Future<Set<Marker>> LoadTreasureListData(String ccbaCtcd) async {
     String url =
-        "http://www.cha.go.kr/cha/SearchKindOpenapiList.do?ccbaKdcd=12&pageUnit=2439&ccbaCtcd=${ccbaCtcd}";
+        "http://www.cha.go.kr/cha/SearchKindOpenapiList.do?ccbaKdcd=12&pageUnit=3000&ccbaCtcd=${ccbaCtcd}";
 
     final response = await http.get(
       Uri.parse(url),

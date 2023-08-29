@@ -16,12 +16,13 @@ void main() async{
   await EasyLocalization.ensureInitialized();
   geolocatorController.checkPermission();
 
-  runApp( EasyLocalization(
-    saveLocale: true,
-    useOnlyLangCode: true,
-    supportedLocales: [Locale('en'), Locale('ko')],
-    path: 'assets/translations',
-    fallbackLocale: Locale('en'),
+  runApp(
+      EasyLocalization(
+    saveLocale: true, // 사용자가 선택한 언어를 로컬 스토리지에 저장
+    useOnlyLangCode: true, // 국가코드 없이 언어코드만 사용 => en_US (x) , en (o)
+    supportedLocales: [Locale('en'), Locale('ko')], // 지원하는 언어목록 설정
+    path: 'assets/translations', // 번역파일 위치 설정
+    fallbackLocale: Locale('en'), // 기본 언어
     child: MyApp(),
   ));
 
@@ -39,8 +40,8 @@ class MyApp extends StatelessWidget {
     treasureListController.lng1 = geolocatorController.longitude;
 
     return GetMaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
+      localizationsDelegates: context.localizationDelegates, // 다국어 지원을 위한 딜리게이트 설정
+      supportedLocales: context.supportedLocales, // 앱에서 지원하는 언어목록 설정
       title: 'MapMapMap',
       theme: ThemeData(
           fontFamily: 'Goong',

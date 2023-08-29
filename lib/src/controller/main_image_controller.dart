@@ -43,7 +43,7 @@ class MainImageController extends GetxController {
     // 국보 리스트
     final nationalResponse = await http.get(
       Uri.parse(
-          "http://www.cha.go.kr/cha/SearchKindOpenapiList.do?ccbaKdcd=11&pageUnit=357"),
+          "http://www.cha.go.kr/cha/SearchKindOpenapiList.do?ccbaKdcd=11&pageUnit=400"),
       headers: {
         "Content-Type": "application/json",
       },
@@ -61,7 +61,7 @@ class MainImageController extends GetxController {
     //보물 리스트
     final treasureResponse = await http.get(
       Uri.parse(
-          "http://www.cha.go.kr/cha/SearchKindOpenapiList.do?ccbaKdcd=12&pageUnit=2439"),
+          "http://www.cha.go.kr/cha/SearchKindOpenapiList.do?ccbaKdcd=12&pageUnit=3000"),
       headers: {
         "Content-Type": "application/json",
       },
