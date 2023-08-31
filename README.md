@@ -101,8 +101,9 @@
 **모빌리티 서비스 화면**
 
 
+![모빌리티 서비스](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/bbc9cef2-57ad-4717-96d8-dffb9d988c64)
 
-![Untitled 5](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/5090556c-9f88-49b1-81dd-b18049b053ec)
+
 
 <br>
 지도에서 마커를 탭 하면 단말기의 위치를 이용해 사용자 위치와 탭 한 마커 사이의 최적 경로를 표시합니다.
