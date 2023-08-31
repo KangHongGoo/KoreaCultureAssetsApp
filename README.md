@@ -68,7 +68,8 @@
 
 
 
-![image](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/daa6b534-74b7-46d7-a897-d30da413518e)  ![Untitled](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/7767d60f-f19b-4692-a108-098d413758ac)
+![image](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/daa6b534-74b7-46d7-a897-d30da413518e)  ![앱 메인화면](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/84e907fd-8ebc-4299-b479-7ad44bd9686e)
+
 <br>
 처음 어플을 시작하면 위치 서비스에 대한 동의를 얻습니다.
 위치 서비스를 통해 사용자 위치에 맞는 날씨를 제공합니다.
@@ -77,8 +78,9 @@
 
 **지도 (국보/보물) 화면**
 
+![지도 상태관리](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/eb255a83-6c43-4193-b3ca-4f072ff78c5b)
 
-![Untitled 1](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/d1da3db4-4ea1-4e1b-9cf4-22fee1db3e48)   ![Untitled 2](https://github.com/KangHongGoo/KoreaCultureAssetsApp/assets/132973559/7e907b88-070a-4e96-b794-38ea3c1b9498)
+
 <br>
 
 
